@@ -1,7 +1,13 @@
+import io
+import re
+
 import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+
+with io.open('src/hello_nico/__init__.py', 'rt', encoding='utf8') as f:
+    version = re.search(r'__version__ = \'(.*?)\'', f.read()).group(1)
 
 # Full Spec
 # https://packaging.python.org/specifications/
@@ -12,7 +18,7 @@ setuptools.setup(
     # It must be free on the index PyPi
     name="hello-nico",
     #   * the version of your project (the archive version)
-    version="0.0.2",
+    version=version,
 
     # Packages to be added
     # See https://setuptools.readthedocs.io/en/latest/setuptools.html#using-find-packages
@@ -43,6 +49,10 @@ setuptools.setup(
     install_requires=[
         'requests>=2.20.1',
         'clint>=0.5.1'
+    ],
+
+    tests_require=[
+        'pytest==4.1.1',
     ],
 
     # Package data
