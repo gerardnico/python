@@ -2,6 +2,8 @@ import numpy as np
 import cv2 as cv
 # https://github.com/opencv/opencv/issues/14590
 # https://www.jetbrains.com/help/pycharm/stubs.html
+# numpy is a binding dependency
+# py -m pip install numpy
 # py -m pip install opencv-python
 
 # noinspection PyUnresolvedReferences
